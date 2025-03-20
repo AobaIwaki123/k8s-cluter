@@ -54,3 +54,14 @@ $ asdf list
 kubectl
  *1.32.3
 ```
+
+## Install argocd with asdf
+
+```sh
+$ asdf plugin add argocd https://github.com/beardix/asdf-argocd.git
+$ asdf install argocd latest
+$ asdf set argocd 2.14.7
+$ asdf list
+argocd
+ *2.14.7
+```
