@@ -65,3 +65,14 @@ $ asdf list
 argocd
  *2.14.7
 ```
+
+## Install krew with asdf
+
+```sh
+$ asdf plugin-add krew https://github.com/nlamirault/asdf-krew.git
+$ asdf install krew v0.4.5
+$ asdf set krew v0.4.5
+$ asdf list
+krew
+ *v0.4.5
+```
