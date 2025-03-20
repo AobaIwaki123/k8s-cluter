@@ -42,3 +42,7 @@
 ## ArgoCDのセットアップ
 
 [手順](docs/argocd.md#install-argocd)
+
+## Minioのセットアップ
+
+[手順](docs/minio.md#install-minio-with-argocd)
