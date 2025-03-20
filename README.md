@@ -39,5 +39,6 @@
 4. Grafanaの初期パスワードを取得
 5. `prometheus-grafana` ServiceをNodePortに切り替えてアクセス
 
+## ArgoCDのセットアップ
 
-
+[手順](docs/argocd.md#install-argocd)
