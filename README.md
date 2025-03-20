@@ -16,6 +16,7 @@
 
 1. asdfをインストール: [手順](docs/preliminaries.md#install-asdf)
 2. asdf経由でgoをインストール: [手順](docs/preliminaries.md#install-golang-with-asdf)
+   1. 全部asdf経由にするならそもそもgoいらないので注意！
 3. k0sctlをインストール: [手順](docs/preliminaries.md#install-k0sctl)
 4. k9sインストール: [手順](docs/preliminaries.md#install-k9s)
 5. asdf経由でhelmをインストール: [手順](docs/preliminaries.md#install-helm-with-asdf)
