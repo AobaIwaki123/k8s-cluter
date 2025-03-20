@@ -1,0 +1,14 @@
+spec:
+  pools:
+    - servers: 1
+      volumesPerServer: 1
+      volumeClaimTemplate:
+        metadata:
+          name: data
+        spec:
+          accessModes:
+            - ReadWriteMany  # CephFSなら複数のPodで共有可能
+          resources:
+            requests:
+              storage: 20Gi
+          storageClassName: cephfs-storage

@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: minio-cephfs-pvc
+spec:
+  accessModes:
+    - ReadWriteMany  # CephFSなので複数ノードからのアクセスが可能
+  resources:
+    requests:
+      storage: 20Gi
+  storageClassName: cephfs-storage
