@@ -36,10 +36,21 @@ $ rm k9s_linux_amd64.deb
 ## Install Helm with asdf
 
 ```sh
-$ asdf plugin-add helm https://github.com/Antiarchitect/asdf-helm.git
+$ asdf plugin add helm https://github.com/Antiarchitect/asdf-helm.git
 $ asdf install helm latest
 $ asdf set helm 3.17.2
 $ asdf list
 helm
  *3.17.2
+```
+
+## Install kubectl with asdf
+
+```sh
+$ asdf plugin add kubectl https://github.com/asdf-community/asdf-kubectl.git
+$ asdf install kubectl latest
+$ asdf set kubectl 1.32.3
+$ asdf list
+kubectl
+ *1.32.3
 ```
