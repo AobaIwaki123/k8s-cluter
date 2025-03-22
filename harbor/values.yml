@@ -1,5 +1,20 @@
 externalURL: https://harbor.example.com
 
+expose:
+  type: nodePort
+  tls:
+    enabled: false  # ローカル検証の場合は false 推奨（HTTPS 無効）
+  nodePort:
+    name: harbor
+    ports:
+      http:
+        port: 80
+        nodePort: 30080
+      https:
+        port: 443
+        nodePort: 30443
+
+
 persistence:
   enabled: true
   resourcePolicy: "keep"
