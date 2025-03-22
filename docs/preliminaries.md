@@ -3,8 +3,8 @@
 ## Install asdf
 
 ```sh
-$ wget https://github.com/asdf-vm/asdf/releases/download/v0.16.5/asdf-v0.16.5-linux-amd64.tar.gz
-$ tar -xvzf asdf-v0.16.5-linux-amd64.tar.gz
+$ wget https://github.com/asdf-vm/asdf/releases/download/v0.16.6/asdf-v0.16.6-linux-amd64.tar.gz
+$ tar -xzvf asdf-v0.16.6-linux-amd64.tar.gz 
 $ sudo install asdf /usr/bin
 ```
 

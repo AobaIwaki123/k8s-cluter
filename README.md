@@ -12,7 +12,7 @@
 
 ## 前準備
 
-全部asdf経由にすればよかった...
+全部asdf経由にする！ (決意)
 
 1. asdfをインストール: [手順](docs/preliminaries.md#install-asdf)
 2. asdf経由でgoをインストール: [手順](docs/preliminaries.md#install-golang-with-asdf)
