@@ -1,6 +1,3 @@
-# All values below are taken from the CephCluster CRD
-# -- Cluster configuration.
-# @default -- See [below](#ceph-cluster-spec)
 cephClusterSpec:
   external:
     enable: true
@@ -11,14 +8,12 @@ cephClusterSpec:
       mon:
         disabled: false
         interval: 45s
-# -- A list of CephBlockPool configurations to deploy
-# @default -- See [below](#ceph-block-pools)
+  csi:
+    enableRBD: true
+    enableCephFS: true
+    rbdPluginImage: quay.io/cephcsi/cephcsi:v3.9.0
+    cephFSPluginImage: quay.io/cephcsi/cephcsi:v3.9.0
+
 cephBlockPools: {}
-
-# -- A list of CephFileSystem configurations to deploy
-# @default -- See [below](#ceph-file-systems)
 cephFileSystems: {}
-
-# -- A list of CephObjectStore configurations to deploy
-# @default -- See [below](#ceph-object-stores)
 cephObjectStores: {}

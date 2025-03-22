@@ -110,3 +110,15 @@ Important Notes:
 $ argocd app create --file rook/ceph-external-cluster.yaml
 $ argocd app sync argocd/rook-ceph-external-cluster
 ```
+
+## 必要なディレクトリを作成
+
+```sh
+$ sudo mkdir -p /var/lib/kubelet/plugins_registry/
+$ sudo chown root:root /var/lib/kubelet/plugins_registry/
+```
+
+```sh
+$ sudo mkdir -p /var/lib/kubelet/plugins/rook-ceph.rbd.csi.ceph.com
+$ sudo mkdir -p /var/lib/kubelet/plugins_registry/
+```
