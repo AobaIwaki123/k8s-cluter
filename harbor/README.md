@@ -25,5 +25,13 @@ $ kubectl create secret generic harbor-gcs-secret \
 ## Install Harbor
 
 ```sh
-$ helm install harbor harbor/harbor -n harbor --create-namespace -f values.yaml
+$ helm install harbor harbor/harbor -n harbor -f values.yml
 ```
+
+# 2. Install Harbor with ArgoCD
+
+## ADD ArgoCD App
+
+- [argocd.yml](argocd.yml)
+
+```sh

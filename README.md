@@ -46,3 +46,7 @@
 ## Minioのセットアップ
 
 ~~[手順](docs/minio.md#install-minio-with-argocd)~~
+
+## Harborのセットアップ
+
+[工事中](harbor/README.md)

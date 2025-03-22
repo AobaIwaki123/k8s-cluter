@@ -1,0 +1,22 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: harbor
+  namespace: argocd  # Argo CD がインストールされている namespace
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/AobaIwaki123/k8s-cluter  # GitHub の URL に書き換える
+    targetRevision: HEAD  # または main / master などのブランチ名
+    path: harbor
+    helm:
+      releaseName: harbor
+      valueFiles:
+        - values.yml  # 拡張子が .yml であることに注意
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: harbor
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
