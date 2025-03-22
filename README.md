@@ -3,7 +3,6 @@
 ## Versions
 
 - asdf: v0.16.5
-- go: 1.24.1
 - k0sctl: v0.23.0
 - k9s: v0.40.10
 - helm: 3.17.2
@@ -12,16 +11,19 @@
 
 ## 前準備
 
-全部asdf経由にする！ (決意)
+全部asdf経由でOK!
 
-1. asdfをインストール: [手順](docs/preliminaries.md#install-asdf)
-2. asdf経由でgoをインストール: [手順](docs/preliminaries.md#install-golang-with-asdf)
-   1. 全部asdf経由にするならそもそもgoいらないので注意！
-3. k0sctlをインストール: [手順](docs/preliminaries.md#install-k0sctl)
-4. k9sインストール: [手順](docs/preliminaries.md#install-k9s)
-5. asdf経由でhelmをインストール: [手順](docs/preliminaries.md#install-helm-with-asdf)
-6. asdf経由でkubectlをインストール: [手順](docs/preliminaries.md#install-kubectl-with-asdf)
-7. asdf経由でargocdをインストール: [手順](docs/preliminaries.md#install-argocd-with-asdf)
+### 1. asdfをインストール: [手順](docs/adsf/README.md)
+
+### 2. それ以外のツールをasdf経由でインストール
+
+Pluginの追加方法: [手順](docs/adsf/README.md)
+
+1. k0sctl
+2. k9s
+3. helm
+4. kubectl
+5. argocd
 
 ## k0sctl準備
 
