@@ -45,4 +45,4 @@
 
 ## Minioのセットアップ
 
-[手順](docs/minio.md#install-minio-with-argocd)
+~~[手順](docs/minio.md#install-minio-with-argocd)~~
