@@ -1,4 +1,4 @@
-# k8s Cluster構築手順
+# k8s Cluster on Proxmox 構築手順
 
 ## Versions
 
