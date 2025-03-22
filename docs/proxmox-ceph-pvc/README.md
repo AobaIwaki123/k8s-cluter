@@ -1,5 +1,9 @@
 # ProxmoxのCeph ClusterにPersistentVolumeClaimを作成する
 
+めちゃくちゃ参考にさせていただきました！！！
+
+https://www.tunamaguro.dev/articles/20240318-kubernetes%E3%81%8B%E3%82%89Proxmox%E3%81%AECeph%E3%82%92%E4%BD%BF%E3%81%86/
+
 ## 1. Rook Ceph Clusterの作成
 
 ```sh
@@ -77,4 +81,21 @@ $ helm install --create-namespace --namespace $NAMESPACE rook-ceph-cluster --set
 
 ```sh
 $ argocd app create --file apps/ceph-external-cluster.yaml
+```
+
+## 5. 動作確認
+
+```sh
+$ kubectl create ns test
+```
+
+```sh
+$ kubectl apply -f tests/pvc.yaml -f tests/pod.yaml -n test
+```
+
+```sh
+$ kubectl get pod -n test csirbd-demo-pod
+# RuningになればOK
+$ kubectl get pvc -n test rbd-pvc
+# BoundになればOK
 ```
