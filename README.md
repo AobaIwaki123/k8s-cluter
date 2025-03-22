@@ -13,11 +13,11 @@
 
 全部asdf経由でOK!
 
-### 1. asdfをインストール: [手順](docs/adsf/README.md)
+### 1. asdfをインストール: [手順](docs/asdf/README.md)
 
 ### 2. それ以外のツールをasdf経由でインストール
 
-Pluginの追加方法: [手順](docs/adsf/README.md)
+Pluginの追加方法: [手順](docs/asdf/README.md)
 
 1. k0sctl
 2. k9s
