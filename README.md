@@ -35,6 +35,10 @@ Pluginの追加方法: [手順](docs/adsf/README.md)
 
 [手順](docs/argocd.md#install-argocd)
 
+## CephFSを用いたPVCの構築
+
+[工事中](docs/proxmox-ceph-pvc/README.md)
+
 ## Minioのセットアップ
 
 ~~[手順](docs/minio.md#install-minio-with-argocd)~~
@@ -43,9 +47,7 @@ Pluginの追加方法: [手順](docs/adsf/README.md)
 
 [工事中](harbor/README.md)
 
-## CephFSを用いたPVCの構築
 
-[工事中](ceph-pvc/README.md)
 
 ## Prometheus, Grafanaのセットアップ
 
