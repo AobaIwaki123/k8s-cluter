@@ -12,9 +12,10 @@ $ helm repo update
 ## Add Secret for GCS
 
 ```sh
-kubectl create secret generic harbor-gcs-secret \
+$ kubectl create ns harbor
+$ kubectl create secret generic harbor-gcs-secret \
   --from-file=key.json=/path/to/gcs-service-account.json \
-  -n harbor --create-namespace
+  -n harbor
 ```
 
 ## Add Values Yaml
