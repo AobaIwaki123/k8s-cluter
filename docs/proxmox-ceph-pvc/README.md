@@ -66,7 +66,15 @@ $ wget https://raw.githubusercontent.com/rook/rook/release-1.16/deploy/examples/
 
 ## 4. 外部Cephクラスターに接続する用のCeph Clusterを作成
 
+### 4-1. Helmを使う場合
+
 ```sh
 $ wget https://raw.githubusercontent.com/rook/rook/release-1.16/deploy/charts/rook-ceph-cluster/values-external.yaml
 $ helm install --create-namespace --namespace $NAMESPACE rook-ceph-cluster --set operatorNamespace=rook-ceph rook-release/rook-ceph-cluster -f values-external.yaml
+```
+
+### 4-2. ArgoCDを使う場合
+
+```sh
+$ argocd app create --file apps/ceph-external-cluster.yaml
 ```
