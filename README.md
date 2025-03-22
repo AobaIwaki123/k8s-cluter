@@ -2,8 +2,7 @@
 
 ## Versions
 
-- asdf: v0.16.5
-- go: 1.24.1
+- asdf: v0.16.6
 - k0sctl: v0.23.0
 - k9s: v0.40.10
 - helm: 3.17.2
@@ -12,16 +11,19 @@
 
 ## 前準備
 
-全部asdf経由にすればよかった...
+全部asdf経由でOK!
 
-1. asdfをインストール: [手順](docs/preliminaries.md#install-asdf)
-2. asdf経由でgoをインストール: [手順](docs/preliminaries.md#install-golang-with-asdf)
-   1. 全部asdf経由にするならそもそもgoいらないので注意！
-3. k0sctlをインストール: [手順](docs/preliminaries.md#install-k0sctl)
-4. k9sインストール: [手順](docs/preliminaries.md#install-k9s)
-5. asdf経由でhelmをインストール: [手順](docs/preliminaries.md#install-helm-with-asdf)
-6. asdf経由でkubectlをインストール: [手順](docs/preliminaries.md#install-kubectl-with-asdf)
-7. asdf経由でargocdをインストール: [手順](docs/preliminaries.md#install-argocd-with-asdf)
+### 1. asdfをインストール: [手順](docs/adsf/README.md)
+
+### 2. それ以外のツールをasdf経由でインストール
+
+Pluginの追加方法: [手順](docs/adsf/README.md)
+
+1. k0sctl
+2. k9s
+3. helm
+4. kubectl
+5. argocd
 
 ## k0sctl準備
 
@@ -29,19 +31,18 @@
 2. k0sctl.ymlの適用 (`k0sctl apply --config k0sctl.yml`)
 3. kube configの取得 (`k0sctl kubeconfig > ~/.kube/config`)
 
-## Prometheus, Grafanaのセットアップ
-
-[手順](docs/prometheus-grafana.md#install-prometheus-grafana-with-helm)
-
-1. helm Repoを追加
-2. monitoring namespaceを作成
-3. kube-prometheus-stackをインストール
-4. Grafanaの初期パスワードを取得
-5. `prometheus-grafana` ServiceをNodePortに切り替えてアクセス
-
 ## ArgoCDのセットアップ
 
 [手順](docs/argocd.md#install-argocd)
+
+## CephFSを用いたPVCの構築
+
+[手順](docs/proxmox-ceph-pvc/README.md)
+
+### 関連記事
+
+- [Proxmox × k0s × CephFS で構築するKubernetesストレージ基盤](https://zenn.dev/aobaiwaki/articles/28ad58a3acaf24)
+- [kubernetesからProxmoxのCephを使う](https://www.tunamaguro.dev/articles/20240318-kubernetes%E3%81%8B%E3%82%89Proxmox%E3%81%AECeph%E3%82%92%E4%BD%BF%E3%81%86/)
 
 ## Minioのセットアップ
 
@@ -51,6 +52,16 @@
 
 [工事中](harbor/README.md)
 
-## CephFSを用いたPVCの構築
 
-[工事中](ceph-pvc/README.md)
+
+## Prometheus, Grafanaのセットアップ
+
+以下でPrometheus, Grafanaをセットアップすることができますが、Promxmox Exporterで十分なのでなくても大丈夫です。
+
+[手順](docs/monitoring/README.md)
+
+1. helm Repoを追加
+2. monitoring namespaceを作成
+3. kube-prometheus-stackをインストール
+4. Grafanaの初期パスワードを取得
+5. `prometheus-grafana` ServiceをNodePortに切り替えてアクセス

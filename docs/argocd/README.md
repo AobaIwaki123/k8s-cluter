@@ -4,7 +4,6 @@
 
 ```sh
 $ kubectl create namespace argocd
-$ kubectl config set-context --current --namespace=argocd
 ```
 
 ## argocdをインストール
