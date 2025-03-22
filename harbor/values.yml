@@ -1,0 +1,27 @@
+externalURL: https://harbor.example.com
+
+persistence:
+  enabled: true
+  resourcePolicy: "keep"
+  persistentVolumeClaim:
+    registry:
+      existingClaim: ""
+    chartmuseum:
+      enabled: false
+    jobservice:
+      jobLog:
+        existingClaim: ""
+    database:
+      existingClaim: ""
+    redis:
+      existingClaim: ""
+    trivy:
+      existingClaim: ""
+
+  imageChartStorage:
+    type: "gcs"
+    gcs:
+      bucket: "aobar"
+      region: "asia-northeast1"
+      keyfileSecret: "harbor-gcs-secret"
+      keyfile: "key.json"
