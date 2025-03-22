@@ -1,0 +1,13 @@
+# test-pvc.yaml
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: cephfs-test-pvc
+  namespace: harbor  # namespaceは実際に使用するものに
+spec:
+  accessModes:
+    - ReadWriteMany  # CephFSはRWX対応
+  storageClassName: cephfs-harbor
+  resources:
+    requests:
+      storage: 1Gi

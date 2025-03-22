@@ -50,3 +50,7 @@
 ## Harborのセットアップ
 
 [工事中](harbor/README.md)
+
+## CephFSを用いたPVCの構築
+
+[工事中](ceph-pvc/README.md)
