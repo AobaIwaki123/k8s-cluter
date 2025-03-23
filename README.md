@@ -42,6 +42,13 @@ Pluginの追加方法: [手順](docs/asdf/README.md)
 2. k0sctl.ymlの適用 (`k0sctl apply --config k0sctl.yml`)
 3. kube configの取得 (`k0sctl kubeconfig > ~/.kube/config`)
 
+## Helm VS ArgoCD
+
+自分はArgocdでクラスタを観察したいので基本的にはArgocdで動作確認しています。
+Helmも一応は動作するかとは思いますが、保証はできないことが多いです。
+また、情報が古いこともあります。
+うまくいかない場合はこのREADMEに拘らず、公式含め色々な情報を参考にしてください。
+
 ## ArgoCDのセットアップ
 
 [手順](docs/argocd.md#install-argocd)
