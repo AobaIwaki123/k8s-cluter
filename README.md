@@ -68,6 +68,14 @@ Helmも一応は動作するかとは思いますが、保証はできないこ�
 
 [手順](docs/minio/README.md)
 
+## Cert Managerのセットアップ (推奨)
+
+Let's Encrypt + cert-manager + Cloudflare DNSで自動的に正式な証明書を発行する！  
+インフラやってる感があって超かっこいい！ (小並感)
+Harborにログインするときに一々自己証明書を登録するのは明らかに体験が悪いので、これはかなりおすすめです。
+
+[手順](docs/cert-manager/README.md)
+
 ## Harborのセットアップ (推奨)
 
 [手順](docs/harbor/README.md)
