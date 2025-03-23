@@ -76,9 +76,21 @@ Harborにログインするときに一々自己証明書を登録するのは�
 
 [手順](docs/cert-manager/README.md)
 
+## Nginx Ingress Controllerのセットアップ (推奨)
+
+HarborのIngressを設定するために必要です。
+
+[手順](docs/nginx/README.md)
+
 ## Harborのセットアップ (推奨)
 
 [手順](docs/harbor/README.md)
+
+## Cloudflareのセットアップ (推奨)
+
+Harborをhttpsで公開するために必要です。
+
+[手順](docs/cloudflare/README.md)
 
 ## Prometheus, Grafanaのセットアップ (任意)
 
