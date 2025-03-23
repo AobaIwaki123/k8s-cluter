@@ -17,11 +17,17 @@ spec:
       values: |
         expose:
           type: nodePort
+          tls:
+            enabled: true
+            auto:
+              commonName: harbor.local
           nodePort:
-            name: nginx
+            name: harbor
             ports:
-              http: 30080
-              https: 30443
+              http:
+                port: 80
+              https:
+                port: 443
   destination:
     server: "https://kubernetes.default.svc"
     namespace: harbor
