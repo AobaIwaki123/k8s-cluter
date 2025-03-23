@@ -1,15 +1,11 @@
+# Deploy Cloudflare on k8s Cluster
+
 ```sh
-$ kubectl create ns cloudflared
+$ kubectl create ns cloudflare
 ```
 
 ```sh
-$ kubectl apply -f manifests/secret.yaml -n cloudflared
-```
-
-```sh
-$ kubectl apply -f manifests/configmap.yaml -n cloudflared
-```
-
-```sh
-$ kubectl apply -f manifests/deployment.yaml -n cloudflared
+$ kubectl create secret generic cloudflare-credentials \
+  --from-file=credentials.json=/path/to/your/credentials.json \
+  -n cloudflared
 ```
