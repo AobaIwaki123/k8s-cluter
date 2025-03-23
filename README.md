@@ -68,7 +68,7 @@ Helmも一応は動作するかとは思いますが、保証はできないこ�
 
 ## Harborのセットアップ
 
-[工事中](harbor/README.md)
+[手順](docs/harbor/README.md)
 
 ## Prometheus, Grafanaのセットアップ
 

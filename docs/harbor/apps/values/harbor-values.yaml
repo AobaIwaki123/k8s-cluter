@@ -1,0 +1,21 @@
+  source:
+    repoURL: https://helm.goharbor.io
+    chart: harbor
+    targetRevision: 1.16.1
+    helm:
+      values: |
+        expose:
+          type: ingress
+          ingress:
+            hosts:
+              core: harbor.example.com
+            ingressClassName: nginx
+        persistence:
+          enabled: true
+          persistentVolumeClaim:
+            registry:
+              storageClass: ceph-rbd
+              size: 10Gi
+            chartmuseum:
+              storageClass: ceph-rbd
+              size: 5Gi
