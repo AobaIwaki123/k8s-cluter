@@ -1,4 +1,0 @@
-ingress:
-  - hostname: harbor.shaoba.tech
-    service: http://harbor-ingress.harbor.svc.cluster.local
-  - service: http_status:404
