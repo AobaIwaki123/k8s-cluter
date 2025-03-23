@@ -27,8 +27,6 @@ spec:
               core: harbor.shaoba.tech
             className: nginx
         externalURL: https://harbor.shaoba.tech
-
-
   destination:
     server: "https://kubernetes.default.svc"
     namespace: harbor
