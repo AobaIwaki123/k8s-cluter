@@ -1,5 +1,16 @@
 # k8s Cluster on Proxmox 構築手順
 
+## 目次
+
+- [Versions](#versions)
+- [前準備](#前準備)
+  - [1. asdfをインストール](#1-asdfをインストール)
+  - [2. それ以外のツールをasdf経由でインストール](#2-それ以外のツールをasdf経由でインストール)
+- [k0sctl準備](#k0sctl準備)
+- [ArgoCDのセットアップ](#argocdのセットアップ)
+- [CephFSを用いたPVCの構築](#cephfsを用いたpvcの構築)
+  - [関連記事](#関連記事)
+
 ## Versions
 
 - asdf: v0.16.6
@@ -46,13 +57,11 @@ Pluginの追加方法: [手順](docs/asdf/README.md)
 
 ## Minioのセットアップ
 
-~~[手順](docs/minio.md#install-minio-with-argocd)~~
+[手順](docs/minio/README.md)
 
 ## Harborのセットアップ
 
 [工事中](harbor/README.md)
-
-
 
 ## Prometheus, Grafanaのセットアップ
 
