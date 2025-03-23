@@ -9,7 +9,7 @@ $ kubectl create ns cert-manager
 ### 1-0. Install CRDs
 
 ```sh
-$ kubectl delete -f https://github.com/cert-manager/cert-manager/releases/download/v1.17.1/cert-manager.crds.yaml -n cert-manager
+$ kubectl apply -f https://github.com/cert-manager/cert-manager/releases/download/v1.17.1/cert-manager.crds.yaml -n cert-manager
 ```
 
 ### 1-1. Helm
@@ -27,4 +27,24 @@ $ helm install cert-manager --namespace cert-manager --version v1.17.1 jetstack/
 
 ```sh
 $ argocd app create --file apps/cert-manager.yaml
+```
+
+## 2. Cloudflare API TokenをSecretに登録
+
+```sh
+$ kubectl create secret generic cloudflare-api-token-secret \
+  --from-literal=api-token=<your-cloudflare-api-token> \
+  --namespace=cert-manager
+```
+
+## 3. Issuerの作成
+
+```sh
+$ kubectl apply -f manifests/clusterissuer-letsencrypt.yaml -n cert-manager
+```
+
+## 4. Certificateの作成
+
+```sh
+$ kubectl apply -f manifests/certificate.yaml -n cert-manager
 ```
