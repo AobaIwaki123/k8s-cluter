@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: cloudflared-config
+  namespace: cloudflared
+data:
+  config.yaml: |
+    tunnel: harbor
+    credentials-file: /etc/cloudflared/credentials.json
+    ingress:
+      - hostname: harbor.shaoba.tech
+        service: http://10.110.68.127
+      - service: http_status:404

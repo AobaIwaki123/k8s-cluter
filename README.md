@@ -1,5 +1,19 @@
 # k8s Cluster on Proxmox 構築手順
 
+自身に知識があまりないため、基本的に公式のHelmやValueを使ってArgoCDを構築しており、必要な時はvaluesを直接argocdのyamlに書き込んでいます。  
+一区切り済んだらその辺りも勉強します！
+
+## 目次
+
+- [Versions](#versions)
+- [前準備](#前準備)
+  - [1. asdfをインストール](#1-asdfをインストール)
+  - [2. それ以外のツールをasdf経由でインストール](#2-それ以外のツールをasdf経由でインストール)
+- [k0sctl準備](#k0sctl準備)
+- [ArgoCDのセットアップ](#argocdのセットアップ)
+- [CephFSを用いたPVCの構築](#cephfsを用いたpvcの構築)
+  - [関連記事](#関連記事)
+
 ## Versions
 
 - asdf: v0.16.6
@@ -13,17 +27,16 @@
 
 全部asdf経由でOK!
 
-### 1. asdfをインストール: [手順](docs/asdf/README.md)
+### 1. asdfをインストール
+  
+[手順](docs/asdf/README.md)
 
-### 2. それ以外のツールをasdf経由でインストール
+### 2. asdf pluginの追加
 
-Pluginの追加方法: [手順](docs/asdf/README.md)
+[手順](docs/asdf/README.md)
 
-1. k0sctl
-2. k9s
-3. helm
-4. kubectl
-5. argocd
+それ以外の上記[Versions](#versions)に記載のツールをasdf plugingを用いてインストール
+
 
 ## k0sctl準備
 
@@ -31,11 +44,18 @@ Pluginの追加方法: [手順](docs/asdf/README.md)
 2. k0sctl.ymlの適用 (`k0sctl apply --config k0sctl.yml`)
 3. kube configの取得 (`k0sctl kubeconfig > ~/.kube/config`)
 
-## ArgoCDのセットアップ
+## Helm VS ArgoCD
+
+自分はArgocdでクラスタを観察したいので基本的にはArgocdで動作確認しています。
+Helmも一応は動作するかとは思いますが、保証はできないことが多いです。
+また、情報が古いこともあります。
+うまくいかない場合はこのREADMEに拘らず、公式含め色々な情報を参考にしてください。
+
+## ArgoCDのセットアップ (推奨)
 
 [手順](docs/argocd.md#install-argocd)
 
-## CephFSを用いたPVCの構築
+## CephFSを用いたPVCの構築 (推奨)
 
 [手順](docs/proxmox-ceph-pvc/README.md)
 
@@ -44,24 +64,36 @@ Pluginの追加方法: [手順](docs/asdf/README.md)
 - [Proxmox × k0s × CephFS で構築するKubernetesストレージ基盤](https://zenn.dev/aobaiwaki/articles/28ad58a3acaf24)
 - [kubernetesからProxmoxのCephを使う](https://www.tunamaguro.dev/articles/20240318-kubernetes%E3%81%8B%E3%82%89Proxmox%E3%81%AECeph%E3%82%92%E4%BD%BF%E3%81%86/)
 
-## Minioのセットアップ
+## Minioのセットアップ (推奨)
 
-~~[手順](docs/minio.md#install-minio-with-argocd)~~
+[手順](docs/minio/README.md)
 
-## Harborのセットアップ
+## Cert Managerのセットアップ (推奨)
 
-[工事中](harbor/README.md)
+Let's Encrypt + cert-manager + Cloudflare DNSで自動的に正式な証明書を発行する！  
+インフラやってる感があって超かっこいい！ (小並感)
+Harborにログインするときに一々自己証明書を登録するのは明らかに体験が悪いので、これはかなりおすすめです。
 
+[手順](docs/cert-manager/README.md)
 
+## Nginx Ingress Controllerのセットアップ (推奨)
 
-## Prometheus, Grafanaのセットアップ
+HarborのIngressを設定するために必要です。
+
+[手順](docs/nginx/README.md)
+
+## Harborのセットアップ (推奨)
+
+[手順](docs/harbor/README.md)
+
+## Cloudflareのセットアップ (推奨)
+
+Harborをhttpsで公開するために必要です。
+
+[手順](docs/cloudflare/README.md)
+
+## Prometheus, Grafanaのセットアップ (任意)
 
 以下でPrometheus, Grafanaをセットアップすることができますが、Promxmox Exporterで十分なのでなくても大丈夫です。
 
 [手順](docs/monitoring/README.md)
-
-1. helm Repoを追加
-2. monitoring namespaceを作成
-3. kube-prometheus-stackをインストール
-4. Grafanaの初期パスワードを取得
-5. `prometheus-grafana` ServiceをNodePortに切り替えてアクセス
