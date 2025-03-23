@@ -20,7 +20,7 @@ spec:
           tls:
             enabled: true
             auto:
-              commonName: harbor.local
+              commonName: 192.168.11.220
           nodePort:
             name: harbor
             ports:
@@ -28,6 +28,7 @@ spec:
                 port: 80
               https:
                 port: 443
+        externalURL: https://192.168.11.220:30003
   destination:
     server: "https://kubernetes.default.svc"
     namespace: harbor
