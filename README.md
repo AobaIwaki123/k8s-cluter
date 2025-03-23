@@ -1,5 +1,8 @@
 # k8s Cluster on Proxmox 構築手順
 
+自身に知識があまりないため、基本的に公式のHelmやValueを使ってArgoCDを構築しており、必要な時はvaluesを直接argocdのyamlに書き込んでいます。  
+一区切り済んだらその辺りも勉強します！
+
 ## 目次
 
 - [Versions](#versions)
@@ -24,17 +27,16 @@
 
 全部asdf経由でOK!
 
-### 1. asdfをインストール: [手順](docs/asdf/README.md)
+### 1. asdfをインストール
+  
+[手順](docs/asdf/README.md)
 
-### 2. それ以外のツールをasdf経由でインストール
+### 2. asdf pluginの追加
 
-Pluginの追加方法: [手順](docs/asdf/README.md)
+[手順](docs/asdf/README.md)
 
-1. k0sctl
-2. k9s
-3. helm
-4. kubectl
-5. argocd
+それ以外の上記[Versions](#versions)に記載のツールをasdf plugingを用いてインストール
+
 
 ## k0sctl準備
 
@@ -49,11 +51,11 @@ Helmも一応は動作するかとは思いますが、保証はできないこ�
 また、情報が古いこともあります。
 うまくいかない場合はこのREADMEに拘らず、公式含め色々な情報を参考にしてください。
 
-## ArgoCDのセットアップ
+## ArgoCDのセットアップ (推奨)
 
 [手順](docs/argocd.md#install-argocd)
 
-## CephFSを用いたPVCの構築
+## CephFSを用いたPVCの構築 (推奨)
 
 [手順](docs/proxmox-ceph-pvc/README.md)
 
@@ -62,22 +64,16 @@ Helmも一応は動作するかとは思いますが、保証はできないこ�
 - [Proxmox × k0s × CephFS で構築するKubernetesストレージ基盤](https://zenn.dev/aobaiwaki/articles/28ad58a3acaf24)
 - [kubernetesからProxmoxのCephを使う](https://www.tunamaguro.dev/articles/20240318-kubernetes%E3%81%8B%E3%82%89Proxmox%E3%81%AECeph%E3%82%92%E4%BD%BF%E3%81%86/)
 
-## Minioのセットアップ
+## Minioのセットアップ (推奨)
 
 [手順](docs/minio/README.md)
 
-## Harborのセットアップ
+## Harborのセットアップ (推奨)
 
 [手順](docs/harbor/README.md)
 
-## Prometheus, Grafanaのセットアップ
+## Prometheus, Grafanaのセットアップ (任意)
 
 以下でPrometheus, Grafanaをセットアップすることができますが、Promxmox Exporterで十分なのでなくても大丈夫です。
 
 [手順](docs/monitoring/README.md)
-
-1. helm Repoを追加
-2. monitoring namespaceを作成
-3. kube-prometheus-stackをインストール
-4. Grafanaの初期パスワードを取得
-5. `prometheus-grafana` ServiceをNodePortに切り替えてアクセス
