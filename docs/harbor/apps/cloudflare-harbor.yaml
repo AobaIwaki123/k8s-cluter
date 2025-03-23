@@ -25,7 +25,7 @@ spec:
           ingress:
             hosts:
               core: harbor.shaoba.tech
-            ingressClassName: nginx
+            className: nginx
         externalURL: https://harbor.shaoba.tech
 
 
