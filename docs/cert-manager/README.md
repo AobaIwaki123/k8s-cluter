@@ -46,5 +46,5 @@ $ kubectl apply -f manifests/clusterissuer-letsencrypt.yaml -n cert-manager
 ## 4. Certificateの作成
 
 ```sh
-$ kubectl apply -f manifests/certificate.yaml -n cert-manager
+$ kubectl apply -f manifests/certificate.yaml
 ```
