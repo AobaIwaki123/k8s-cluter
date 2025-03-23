@@ -60,9 +60,28 @@ $ helm install \
 $ argocd app create --file apps/minio-tenant.yaml
 ```
 
-## 3. Minio Operator と Minio Tenant の関係
+## 3. Minio Consoleを開く
 
-### 3-1. Mermaidでの関係図
+### 3-1. ポートを開く
+
+```sh
+$ kubectl get svc -n minio-tenant myminio-console
+# Minio Console Serviceを特定
+# 適当な方法でポートを開く (Port-Forward, NodePort, etc)
+```
+
+### 3-2. シークレットの取得
+
+```sh
+$ kubectl get secret -n minio-tenant myminio-env-configuration -o jsonpath="{.metadata.annotations}"
+# 出力から、MINIO_ROOT_USERとMINIO_ROOT_PASSWORDを確認
+```
+
+確認した情報を使って、Minio Consoleにログイン
+
+## Minio Operator と Minio Tenant の関係
+
+### Mermaidでの関係図
 
 ```mermaid
 graph TB
@@ -122,7 +141,7 @@ graph TB
 ---
 
 ## 🔁 処理フロー
-1. ユーザーが Tenant CR を作成（`kubectl apply`）
+1. ユーザーが Tenant CR を作成
 2. Operator が内容を読み取り、Pod や PVC を作成
 3. MinIO クラスタが起動
 4. Console 経由で管理可能
