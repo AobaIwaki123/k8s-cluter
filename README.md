@@ -41,7 +41,7 @@
 
 [手順](docs/asdf/README.md)
 
-それ以外の上記[Versions](#versions)に記載のツールをasdf plugingを用いてインストール
+それ以外の上記[Versions](#versions)に記載のツールをasdf pluginを用いてインストール
 
 
 ## k0sctl準備
