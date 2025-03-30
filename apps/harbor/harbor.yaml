@@ -25,7 +25,7 @@ spec:
           ingress:
             hosts:
               core: harbor.shaoba.tech
-            className: cloudflare
+            className: cloudflare-tunnel
         externalURL: https://harbor.shaoba.tech
   destination:
     server: "https://kubernetes.default.svc"
