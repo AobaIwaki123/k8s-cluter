@@ -10,9 +10,9 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: https://github.com/AobaIwaki123/k8s-cluter/tree/iwaki/k8s-cluster-rta/helm/rook/charts
-    chart: rook-ceph
-    targetRevision: v1.16.5
+    repoURL: https://github.com/AobaIwaki123/k8s-cluter
+    targetRevision: main
+    path: helm/rook/charts/rook-ceph
     helm:
       parameters:
         - name: csi.kubeletDirPath
