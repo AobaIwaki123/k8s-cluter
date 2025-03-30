@@ -1,0 +1,25 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: rook-ceph
+  namespace: argocd
+  annotations:
+    argocd.argoproj.io/sync-wave: "-1"
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/AobaIwaki123/k8s-cluter/tree/iwaki/k8s-cluster-rta/helm/rook/charts
+    chart: rook-ceph
+    targetRevision: v1.16.5
+    helm:
+      parameters:
+        - name: csi.kubeletDirPath
+          value: /var/lib/k0s/kubelet
+  destination:
+    server: "https://kubernetes.default.svc"
+    namespace: rook-ceph
+  syncPolicy:
+    syncOptions:
+      - CreateNamespace=true

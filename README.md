@@ -59,7 +59,7 @@ Helmも一応は動作するかとは思いますが、保証はできないこ�
 
 ## ArgoCDのセットアップ (推奨)
 
-[手順](docs/argocd.md#install-argocd)
+[手順](docs/argocd/README.md)
 
 ## CephFSを用いたPVCの構築 (推奨)
 
