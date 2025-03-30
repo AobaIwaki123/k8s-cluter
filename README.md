@@ -1,7 +1,10 @@
 # k8s Cluster on Proxmox 構築手順
 
-自身に知識があまりないため、基本的に公式のHelmやValueを使ってArgoCDを構築しており、必要な時はvaluesを直接argocdのyamlに書き込んでいます。  
-一区切り済んだらその辺りも勉強します！
+## 次のRTAの目標
+
+- asdf周りのansible化
+- 公式のhelmを自前で持つとバージョン管理が面倒なので、公式のものはそのまま使うように修正する
+- READMEが肥大化してきたので、各種手順をさらに分割する
 
 ## 目次
 
@@ -13,12 +16,13 @@
 - [ArgoCDのセットアップ](#argocdのセットアップ)
 - [CephFSを用いたPVCの構築](#cephfsを用いたpvcの構築)
   - [関連記事](#関連記事)
-- [Minioのセットアップ](#minioのセットアップ)
 - [Cert Managerのセットアップ](#cert-managerのセットアップ)
-- [Nginx Ingress Controllerのセットアップ](#nginx-ingress-controllerのセットアップ)
+- [Cloudflare Ingress Controllerのセットアップ](#cloudflare-ingress-controllerのセットアップ)
 - [Harborのセットアップ](#harborのセットアップ)
 - [Cloudflareのセットアップ](#cloudflareのセットアップ)
 - [Prometheus, Grafanaのセットアップ](#prometheus-grafanaのセットアップ)
+- [Minioのセットアップ](#minioのセットアップ)
+- [Nginx Ingress Controllerのセットアップ](#nginx-ingress-controllerのセットアップ)
 
 ## Versions
 
@@ -30,8 +34,6 @@
 - argocd: 2.14.7
 
 ## 前準備
-
-全部asdf経由でOK!
 
 ### 1. asdfをインストール
   
@@ -50,13 +52,6 @@
 2. k0sctl.ymlの適用 (`k0sctl apply --config k0sctl.yml`)
 3. kube configの取得 (`k0sctl kubeconfig > ~/.kube/config`)
 
-## Helm VS ArgoCD
-
-自分はArgocdでクラスタを観察したいので基本的にはArgocdで動作確認しています。
-Helmも一応は動作するかとは思いますが、保証はできないことが多いです。
-また、情報が古いこともあります。
-うまくいかない場合はこのREADMEに拘らず、公式含め色々な情報を参考にしてください。
-
 ## ArgoCDのセットアップ (推奨)
 
 [手順](docs/argocd/README.md)
@@ -64,11 +59,6 @@ Helmも一応は動作するかとは思いますが、保証はできないこ�
 ## Rook Cephを用いたPVCの構築 (推奨)
 
 [手順](docs/rook/README.md)
-
-### 関連記事
-
-- [Proxmox × k0s × CephFS で構築するKubernetesストレージ基盤](https://zenn.dev/aobaiwaki/articles/28ad58a3acaf24)
-- [kubernetesからProxmoxのCephを使う](https://www.tunamaguro.dev/articles/20240318-kubernetes%E3%81%8B%E3%82%89Proxmox%E3%81%AECeph%E3%82%92%E4%BD%BF%E3%81%86/)
 
 ## Cert Managerのセットアップ (推奨)
 
@@ -90,12 +80,11 @@ Harborに安全にアクセスするためにあった方がいいです。
 ## Cloudflareのセットアップ (推奨)
 
 Harborをhttpsで公開するために必要です。
+インターネットに安全にかつ簡単に公開することができ非常に体験がいいです。
 
 [手順](docs/cloudflare/README.md)
 
 ## Prometheus, Grafanaのセットアップ (任意)
-
-以下でPrometheus, Grafanaをセットアップすることができますが、Promxmox Exporterで十分なのでなくても大丈夫です。
 
 [手順](docs/monitoring/README.md)
 

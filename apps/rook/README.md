@@ -25,3 +25,8 @@ $ kubectl patch storageclass ceph-rbd \
 ```sh
 $ argocd app set rook-ceph --revision {branch_name}
 ```
+
+### 参考
+
+- [Proxmox × k0s × CephFS で構築するKubernetesストレージ基盤](https://zenn.dev/aobaiwaki/articles/28ad58a3acaf24)
+- [kubernetesからProxmoxのCephを使う](https://www.tunamaguro.dev/articles/20240318-kubernetes%E3%81%8B%E3%82%89Proxmox%E3%81%AECeph%E3%82%92%E4%BD%BF%E3%81%86/)
