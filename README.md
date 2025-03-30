@@ -78,11 +78,12 @@ Harborにログインするときに一々自己証明書を登録するのは�
 
 [手順](docs/cert-manager/README.md)
 
-## Nginx Ingress Controllerのセットアップ (推奨)
+## Cloudflare Ingress Controllerのセットアップ (推奨)
 
-HarborのIngressを設定するために必要です。
+CloudflareのAPIを用いて、CloudflareのDNSを自動的に更新するIngress Controllerです。
+Harborに安全にアクセスするためにあった方がいいです。
 
-[手順](docs/nginx/README.md)
+[手順](docs/cloudflare-ingress-controller/README.md)
 
 ## Harborのセットアップ (推奨)
 
@@ -103,3 +104,7 @@ Harborをhttpsで公開するために必要です。
 ## Minioのセットアップ (任意)
 
 [手順](docs/minio/README.md)
+
+## Nginx Ingress Controllerのセットアップ (任意)
+
+[手順](docs/nginx/README.md)

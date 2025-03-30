@@ -10,9 +10,9 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: https://github.com/AobaIwaki123/k8s-cluter
-    path: helm/cert-manager/charts/cert-manager
-    targetRevision: main
+    repoURL: https://charts.jetstack.io
+    chart: cert-manager
+    targetRevision: 1.17.1
   destination:
     server: "https://kubernetes.default.svc"
     namespace: cert-manager
