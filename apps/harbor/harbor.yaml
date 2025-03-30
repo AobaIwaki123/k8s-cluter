@@ -1,0 +1,35 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: harbor
+  namespace: argocd
+  annotations:
+    argocd.argoproj.io/sync-wave: "-1"
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  project: default
+  source:
+    repoURL: https://helm.goharbor.io
+    chart: harbor
+    targetRevision: 1.16.1
+    helm:
+      values: |
+        expose:
+          type: ingress
+          tls:
+            enabled: true
+            certSource: secret
+            secret:
+              secretName: harbor-tls
+          ingress:
+            hosts:
+              core: harbor.shaoba.tech
+            className: cloudflare
+        externalURL: https://harbor.shaoba.tech
+  destination:
+    server: "https://kubernetes.default.svc"
+    namespace: harbor
+  syncPolicy:
+    syncOptions:
+      - CreateNamespace=true
