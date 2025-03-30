@@ -72,9 +72,7 @@ Helmも一応は動作するかとは思いますが、保証はできないこ�
 
 ## Cert Managerのセットアップ (推奨)
 
-Let's Encrypt + cert-manager + Cloudflare DNSで自動的に正式な証明書を発行する！  
-インフラやってる感があって超かっこいい！ (小並感)
-Harborにログインするときに一々自己証明書を登録するのは明らかに体験が悪いので、これはかなりおすすめです。
+Let's Encrypt + cert-manager + Cloudflare DNSで自動的に正式な証明書を発行します
 
 [手順](docs/cert-manager/README.md)
 
