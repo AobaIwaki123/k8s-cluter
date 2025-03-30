@@ -33,5 +33,5 @@ $ kubectl apply -f ./certificate.yaml
 ## Argo CD で見るブランチの切り替え
 
 ```sh
-$ argocd app set rook-ceph --revision {branch_name}
+$ argocd app set cert-manager --revision {branch_name}
 ```
