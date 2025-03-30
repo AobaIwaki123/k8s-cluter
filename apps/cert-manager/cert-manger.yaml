@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: rook-ceph
+  name: cert-manager
   namespace: argocd
   annotations:
     argocd.argoproj.io/sync-wave: "-1"
@@ -10,16 +10,12 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: https://github.com/AobaIwaki123/k8s-cluter/tree/iwaki/k8s-cluster-rta/helm/rook/charts
-    chart: rook-ceph
-    targetRevision: v1.16.5
-    helm:
-      parameters:
-        - name: csi.kubeletDirPath
-          value: /var/lib/k0s/kubelet
+    repoURL: https://github.com/AobaIwaki123/k8s-cluter
+    path: helm/cert-manager/charts/cert-manager
+    targetRevision: main
   destination:
     server: "https://kubernetes.default.svc"
-    namespace: rook-ceph
+    namespace: cert-manager
   syncPolicy:
     syncOptions:
       - CreateNamespace=true

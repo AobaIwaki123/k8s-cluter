@@ -61,18 +61,14 @@ Helmも一応は動作するかとは思いますが、保証はできないこ�
 
 [手順](docs/argocd/README.md)
 
-## CephFSを用いたPVCの構築 (推奨)
+## Rook Cephを用いたPVCの構築 (推奨)
 
-[手順](docs/proxmox-ceph-pvc/README.md)
+[手順](docs/rook/README.md)
 
 ### 関連記事
 
 - [Proxmox × k0s × CephFS で構築するKubernetesストレージ基盤](https://zenn.dev/aobaiwaki/articles/28ad58a3acaf24)
 - [kubernetesからProxmoxのCephを使う](https://www.tunamaguro.dev/articles/20240318-kubernetes%E3%81%8B%E3%82%89Proxmox%E3%81%AECeph%E3%82%92%E4%BD%BF%E3%81%86/)
-
-## Minioのセットアップ (推奨)
-
-[手順](docs/minio/README.md)
 
 ## Cert Managerのセットアップ (推奨)
 
@@ -103,3 +99,7 @@ Harborをhttpsで公開するために必要です。
 以下でPrometheus, Grafanaをセットアップすることができますが、Promxmox Exporterで十分なのでなくても大丈夫です。
 
 [手順](docs/monitoring/README.md)
+
+## Minioのセットアップ (任意)
+
+[手順](docs/minio/README.md)
