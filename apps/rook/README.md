@@ -1,4 +1,4 @@
-## Argo CD でRookをデプロイ
+## Argo CD で Rook をデプロイ
 
 ```sh
 $ argocd app create --file ./rook-ceph.yaml
