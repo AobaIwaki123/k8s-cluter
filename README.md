@@ -63,7 +63,7 @@ Helmも一応は動作するかとは思いますが、保証はできないこ�
 
 ## CephFSを用いたPVCの構築 (推奨)
 
-[手順](docs/proxmox-ceph-pvc/README.md)
+[手順](docs/rook/README.md)
 
 ### 関連記事
 
