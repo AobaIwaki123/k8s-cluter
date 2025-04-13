@@ -16,19 +16,12 @@ spec:
     helm:
       values: |
         expose:
-          type: nodePort
-          tls:
-            enabled: true
-            auto:
-              commonName: 192.168.11.220
-          nodePort:
-            name: harbor
-            ports:
-              http:
-                port: 80
-              https:
-                port: 443
-        externalURL: https://192.168.11.220:30003
+          type: ingress
+          ingress:
+            hosts:
+              core: harbor.aooba.net
+            className: cloudflare-tunnel
+        externalURL: https://harbor.aooba.net
   destination:
     server: "https://kubernetes.default.svc"
     namespace: harbor
