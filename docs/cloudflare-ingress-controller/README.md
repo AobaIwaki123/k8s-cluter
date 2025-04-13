@@ -1,27 +1,14 @@
-# Deploy Cloudflare on k8s Cluster
-
-## 1. Create Namespace
-
 ```sh
-$ kubectl create ns cloudflare
+$ argocd app create --file ./cloudflare-tunnel-ingress-controller.yml
 ```
 
-## 2. Create Secret
+### Permissions: 
 
-```sh
-$ kubectl create secret generic cloudflare-credentials \
-  --from-file=credentials.json=/path/to/your/credentials.json \
-  -n cloudflared
-```
+- Zone:Zone:Read
+- Zone:DNS:Edit
+- Account:Cloudflare Tunnel:Edit
 
-## 3. Set ConfigMap
+## 参考
 
-```sh
-$ kubectl apply -f manifests/cloudflared-config.yaml
-```
-
-## 4. Deploy Cloudflared
-
-```sh
-$ kubectl apply -f manifests/cloudflared-deploy.yaml
-```
+- [自宅 kubernetes で cloudflare-tunnel-ingress-controller を使ってお手軽外部公開](https://zenn.dev/yh/articles/11823e77bd4379)
+- [Cloudflare Tunnel Ingress Controller](https://github.com/STRRL/cloudflare-tunnel-ingress-controller)
