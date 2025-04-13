@@ -13,7 +13,7 @@ spec:
     targetRevision: v1.13.6
     helm:
       valuesObject:
-        cephalusterSpec:
+        cephClusterSpec:
           external:
             enable: true
           crashCollector:
@@ -29,4 +29,3 @@ spec:
   destination:
     server: "https://kubernetes.default.svc"
     namespace: rook-ceph-external 
-  
