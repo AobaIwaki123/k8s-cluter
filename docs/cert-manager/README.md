@@ -26,7 +26,7 @@ $ helm install cert-manager --namespace cert-manager --version v1.17.1 jetstack/
 ### 1-2. ArgoCD
 
 ```sh
-$ argocd app create --file apps/cert-manager.yaml
+$ argocd app create --file argocd/cert-manager.yaml
 ```
 
 ## 2. Cloudflare API TokenをSecretに登録

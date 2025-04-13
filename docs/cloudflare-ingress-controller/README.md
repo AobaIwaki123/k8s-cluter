@@ -1,5 +1,5 @@
 ```sh
-$ argocd app create --file ./cloudflare-tunnel-ingress-controller.yml
+$ argocd app create --file ./argocd/cloudflare-tunnel-ingress-controller.yml
 ```
 
 ### Permissions: 
