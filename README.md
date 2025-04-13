@@ -50,15 +50,16 @@
 
 [手順](docs/argocd/README.md)
 
-## Rook Cephを用いたPVCの構築 (推奨)
-
-[手順](docs/rook/README.md)
-
 ## Cert Managerのセットアップ (推奨)
 
 Let's Encrypt + cert-manager + Cloudflare DNSで自動的に正式な証明書を発行します
 
 [手順](docs/cert-manager/README.md)
+
+## Rook Cephを用いたPVCの構築 (推奨)
+
+[手順](docs/rook/README.md)
+
 
 ## Cloudflare Ingress Controllerのセットアップ (推奨)
 

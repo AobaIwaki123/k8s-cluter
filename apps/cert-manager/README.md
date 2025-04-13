@@ -32,7 +32,7 @@ Include → Specific Zone →（対象のドメイン名を選択）
 
 ```sh
 $ kubectl create secret generic cloudflare-api-token-secret \
-  --from-literal=api-token=_MeiCg75YRIamLCjfEJubjRhiEvdqdnBY7YMIeAA \
+  --from-literal=api-token=hoge \
   --namespace=cert-manager
 ```
 
