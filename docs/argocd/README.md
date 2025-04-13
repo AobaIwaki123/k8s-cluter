@@ -39,6 +39,8 @@ Repeat New Password: <NEW_PASSWORD>
 
 ## Cloudflare Ingress Controllerで公開
 
+Cloudflare Ingress Controllerのセットアップが必要です。
+
 ```sh
 $ kubectl apply -f manifests/ingress.yml
 ```

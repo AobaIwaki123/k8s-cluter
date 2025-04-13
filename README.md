@@ -46,7 +46,18 @@
 2. k0sctl.ymlの適用 (`k0sctl apply --config k0sctl.yml`)
 3. kube configの取得 (`k0sctl kubeconfig > ~/.kube/config`)
 
-## ArgoCDの仮セットアップ (推奨)
+## ArgoCDのセットアップ (推奨)
+
+[手順](docs/argocd/README.md)
+
+## Cloudflare Ingress Controllerのセットアップ (推奨)
+
+CloudflareのAPIを用いて、CloudflareのDNSを自動的に更新するIngress Controllerです。
+これを用いることでどんなサービスもSSL化して公開することができます。
+
+[手順](docs/cloudflare-ingress-controller/README.md)
+
+## ArgoCDの本セットアップ (推奨)
 
 [手順](docs/argocd/README.md)
 
@@ -55,17 +66,6 @@
 Let's Encrypt + cert-manager + Cloudflare DNSで自動的に正式な証明書を発行します
 
 [手順](docs/cert-manager/README.md)
-
-## Cloudflare Ingress Controllerのセットアップ (推奨)
-
-CloudflareのAPIを用いて、CloudflareのDNSを自動的に更新するIngress Controllerです。
-Harborに安全にアクセスするためにあった方がいいです。
-
-[手順](docs/cloudflare-ingress-controller/README.md)
-
-## ArgoCDの本セットアップ (推奨)
-
-[手順](docs/argocd/README.md)
 
 ## Rook Cephを用いたPVCの構築 (推奨)
 
