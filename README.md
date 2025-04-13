@@ -1,5 +1,30 @@
 # k8s Cluster on Proxmox 構築手順
 
+## このドキュメントでできること
+
+### 1. ArgoCDを用いたアプリケーションの管理
+
+![alt text](imgs/argocd.png "ArgoCD")
+
+### 2. Cloudflare Ingress Controllerを用いたサービスの公開
+
+- argocd: https://argocd.example.com
+- harbor: https://harbor.example.com
+
+### 3. Rook Cephを用いた永続ストレージの構築
+
+
+### 4. Harborを用いたプライベートDocker Registryの構築
+
+![alt text](imgs/harbor.png "Rook Ceph")
+
+## 発展
+
+以下のリポジトリとProxmoxを組み合わせることで、VMの作成・削除、構成の自動化が可能になり、自宅に簡易的なクラウド基盤を構築できます。
+
+- [Terraform for Proxmox](https://github.com/AobaIwaki123/Proxmox-Terraform)
+- [Ansible](https://github.com/AobaIwaki123/ansible)
+
 ## 目次
 
 - [Versions](#versions)
