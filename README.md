@@ -46,7 +46,7 @@
 2. k0sctl.ymlの適用 (`k0sctl apply --config k0sctl.yml`)
 3. kube configの取得 (`k0sctl kubeconfig > ~/.kube/config`)
 
-## ArgoCDのセットアップ (推奨)
+## ArgoCDの仮セットアップ (推奨)
 
 [手順](docs/argocd/README.md)
 
@@ -62,6 +62,10 @@ CloudflareのAPIを用いて、CloudflareのDNSを自動的に更新するIngres
 Harborに安全にアクセスするためにあった方がいいです。
 
 [手順](docs/cloudflare-ingress-controller/README.md)
+
+## ArgoCDの本セットアップ (推奨)
+
+[手順](docs/argocd/README.md)
 
 ## Rook Cephを用いたPVCの構築 (推奨)
 
