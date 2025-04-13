@@ -1,0 +1,13 @@
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: argocd-tls
+  namespace: argocd
+spec:
+  secretName: argocd-tls  # Ingress で参照されるTLS証明書のSecret名
+  issuerRef:
+    name: letsencrypt-cloudflare
+    kind: ClusterIssuer
+  commonName: argocd.aooba.net
+  dnsNames:
+    - argocd.aooba.net

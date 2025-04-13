@@ -32,3 +32,9 @@ Current Password: gQz9mVAdH7UgkdyI
 New Password: <NEW_PASSWORD>
 Repeat New Password: <NEW_PASSWORD>
 ```
+
+## Cloudflare Ingress Controllerで公開
+
+```sh
+$ kubectl apply -k ./manifests
+```
