@@ -68,29 +68,16 @@ ArgoCD上にCloudflare Ingress Controllerをセットアップした後、Cloudf
 
 [手順](docs/rook/README.md)
 
-## 4. Harborのセットアップ
-
-[手順](docs/harbor/README.md)
-
-## Cert Managerのセットアップ
+## 4. Cert Managerのセットアップ
 
 Let's Encrypt + cert-manager + Cloudflare DNSで自動的に正式な証明書を発行します
 
 [手順](docs/cert-manager/README.md)
 
+## 5. Harborのセットアップ
 
+[手順](docs/harbor/README.md)
 
-
-## Cloudflareのセットアップ
-
-Harborをhttpsで公開するために必要です。
-インターネットに安全にかつ簡単に公開することができ非常に体験がいいです。
-
-[手順](docs/cloudflare/README.md)
-
-## Prometheus, Grafanaのセットアップ (任意)
-
-[手順](docs/monitoring/README.md)
 
 ## Minioのセットアップ (任意)
 
