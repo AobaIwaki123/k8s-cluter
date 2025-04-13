@@ -3,19 +3,19 @@
 ## 目次
 
 - [Versions](#versions)
-- [前準備](#前準備)
+- [0. 前準備](#0-前準備)
   - [1. asdfをインストール](#1-asdfをインストール)
-  - [2. それ以外のツールをasdf経由でインストール](#2-それ以外のツールをasdf経由でインストール)
-- [k0sctl準備](#k0sctl準備)
-- [ArgoCDのセットアップ](#argocdのセットアップ)
-- [Cloudflare Ingress Controllerのセットアップ](#cloudflare-ingress-controllerのセットアップ)
-- [CephFSを用いたPVCの構築](#cephfsを用いたpvcの構築)
-- [Cert Managerのセットアップ](#cert-managerのセットアップ)
-- [Harborのセットアップ](#harborのセットアップ)
-- [Cloudflareのセットアップ](#cloudflareのセットアップ)
-- [Prometheus, Grafanaのセットアップ](#prometheus-grafanaのセットアップ)
-- [Minioのセットアップ](#minioのセットアップ)
-- [Nginx Ingress Controllerのセットアップ](#nginx-ingress-controllerのセットアップ)
+  - [2. asdf pluginの追加](#2-asdf-pluginの追加)
+- [k0sctlでk8sクラスターを構築](#k0sctlでk8sクラスターを構築)
+- [1. ArgoCDのセットアップ](#1-argocdのセットアップ)
+- [2. Cloudflare Ingress Controllerのセットアップ](#2-cloudflare-ingress-controllerのセットアップ)
+- [1'. ArgoCDの本セットアップ](#1-argocdの本セットアップ)
+- [3. Rook Cephを用いたPVCの構築](#3-rook-cephを用いたpvcの構築)
+- [4. Cert Managerのセットアップ](#4-cert-managerのセットアップ)
+- [5. Harborのセットアップ](#5-harborのセットアップ)
+- [Minioのセットアップ (任意)](#minioのセットアップ-任意)
+- [Nginx Ingress Controllerのセットアップ (任意)](#nginx-ingress-controllerのセットアップ-任意)
+- [参考](#参考)
 
 ## Versions
 
@@ -39,7 +39,7 @@
 それ以外の上記[Versions](#versions)に記載のツールをasdf pluginを用いてインストール
 
 
-## k0sctl準備
+## k0sctlでk8sクラスターを構築
 
 1. k0sctl.ymlの作成 (`k0sctl init > k0ctl.yml`)
 2. k0sctl.ymlの適用 (`k0sctl apply --config k0sctl.yml`)
