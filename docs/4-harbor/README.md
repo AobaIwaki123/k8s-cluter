@@ -1,7 +1,7 @@
 # Install Harbor
 
 ```sh
-$ argocd app create --file apps/harbor.yaml
+$ argocd app create --file argocd/harbor.yaml
 ```
 
 ## 2. テスト
