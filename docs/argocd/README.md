@@ -9,10 +9,6 @@ $ kubectl create namespace argocd
 ## argocdをインストール
 
 ```sh
-$ kubectl delete -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
-```
-
-```sh
 $ kubectl apply -n argocd -f manifests/install.yaml
 ```
 
@@ -21,7 +17,7 @@ $ kubectl apply -n argocd -f manifests/install.yaml
 一応コマンドを書いていますが自分はk9sから直接変更することが多いです。
 
 ```sh
-$ kubectl patch svc argocd-server -n argocd -p '{"spec": {"type": "ClusterIP"}}'
+$ kubectl patch svc argocd-server -n argocd -p '{"spec": {"type": "NodePort"}}'
 ```
 
 

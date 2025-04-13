@@ -67,8 +67,6 @@ Harborに安全にアクセスするためにあった方がいいです。
 
 [手順](docs/rook/README.md)
 
-
-
 ## Harborのセットアップ (推奨)
 
 [手順](docs/harbor/README.md)

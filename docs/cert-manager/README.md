@@ -31,6 +31,14 @@ $ argocd app create --file apps/cert-manager.yaml
 
 ## 2. Cloudflare API TokenをSecretに登録
 
+### Permissions:
+
+- Zone:DNS:Edit
+
+### Zone Resources:
+
+Include → Specific Zone →（対象のドメイン名を選択）
+
 ```sh
 $ kubectl create secret generic cloudflare-api-token-secret \
   --from-literal=api-token=<your-cloudflare-api-token> \

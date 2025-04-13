@@ -12,8 +12,8 @@ spec:
     helm:
       valuesObject:
         cloudflare:
-          apiToken: hoge
-          accountId: hoge
+          apiToken: oNoqkF5U0ac1rkzW6_iHdd-QP_JTAA3LsfrZdjSd
+          accountId: b64715d4ccf3e955336bd290f574f6d4
           tunnelName: cf-tunnel-ingress-controller
 
   destination:
