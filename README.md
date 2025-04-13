@@ -56,17 +56,18 @@ Let's Encrypt + cert-manager + Cloudflare DNSで自動的に正式な証明書�
 
 [手順](docs/cert-manager/README.md)
 
-## Rook Cephを用いたPVCの構築 (推奨)
-
-[手順](docs/rook/README.md)
-
-
 ## Cloudflare Ingress Controllerのセットアップ (推奨)
 
 CloudflareのAPIを用いて、CloudflareのDNSを自動的に更新するIngress Controllerです。
 Harborに安全にアクセスするためにあった方がいいです。
 
 [手順](docs/cloudflare-ingress-controller/README.md)
+
+## Rook Cephを用いたPVCの構築 (推奨)
+
+[手順](docs/rook/README.md)
+
+
 
 ## Harborのセットアップ (推奨)
 
