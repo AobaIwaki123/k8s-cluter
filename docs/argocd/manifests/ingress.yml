@@ -6,9 +6,13 @@ metadata:
   annotations:
     nginx.ingress.kubernetes.io/rewrite-target: /
     nginx.ingress.kubernetes.io/backend-protocol: "HTTP"
-    nginx.ingress.kubernetes.io/ssl-redirect: "false"
+    nginx.ingress.kubernetes.io/ssl-redirect: "true"  # trueに変更してHTTPSリダイレクトを有効化
 spec:
   ingressClassName: cloudflare-tunnel
+  tls:
+    - hosts:
+        - argocd.aooba.net
+      secretName: argocd-tls  # Certificateと一致
   rules:
     - host: argocd.aooba.net
       http:

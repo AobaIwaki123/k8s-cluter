@@ -35,6 +35,8 @@ Repeat New Password: <NEW_PASSWORD>
 
 ## Cloudflare Ingress Controllerで公開
 
+- 証明書が発行されるまで長くて3分くらい
+
 ```sh
-$ kubectl apply -k ./manifests
+$ kubectl apply -f manifests/certificate.yml
 ```
