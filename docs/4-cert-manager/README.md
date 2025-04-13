@@ -15,7 +15,7 @@ $ kubectl apply -f https://github.com/cert-manager/cert-manager/releases/downloa
 ## Argo CD の APP を起動
 
 ```sh
-$ argocd app create --file ./cert-manager.yaml
+$ argocd app create --file ./argocd/cert-manager.yaml
 ```
 
 ## Cloudflare の API トークンを作成
@@ -39,11 +39,5 @@ $ kubectl create secret generic cloudflare-api-token-secret \
 ## ClusterIssuer を作成
 
 ```sh
-$ kubectl apply -f ./clusterissuer-letsencrypt.yaml
-```
-
-## Argo CD で見るブランチの切り替え
-
-```sh
-$ argocd app set cert-manager --revision {branch_name}
+$ kubectl apply -f ./manifests/clusterissuer-letsencrypt.yaml
 ```
