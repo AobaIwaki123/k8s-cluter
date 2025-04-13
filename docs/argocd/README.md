@@ -12,13 +12,13 @@ $ kubectl create namespace argocd
 $ kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
 ```
 
+## Ingressで公開するためにSSL リダイレクトを無効化
+
 ```sh
 $ kubectl apply -n argocd -f manifests/argocd-cmd-params-cm.yml
 ```
 
 ## argocdのServiceをNodePortに変更
-
-一応コマンドを書いていますが自分はk9sから直接変更することが多いです。
 
 ```sh
 $ kubectl patch svc argocd-server -n argocd -p '{"spec": {"type": "NodePort"}}'
@@ -38,12 +38,6 @@ Repeat New Password: <NEW_PASSWORD>
 ```
 
 ## Cloudflare Ingress Controllerで公開
-
-- 証明書が発行されるまで長くて3分くらい
-
-```sh
-$ kubectl apply -f manifests/certificate.yml
-```
 
 ```sh
 $ kubectl apply -f manifests/ingress.yml
