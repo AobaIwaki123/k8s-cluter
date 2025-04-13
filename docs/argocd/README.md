@@ -9,7 +9,11 @@ $ kubectl create namespace argocd
 ## argocdをインストール
 
 ```sh
-$ kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
+$ kubectl delete -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
+```
+
+```sh
+$ kubectl apply -n argocd -f manifests/install.yaml
 ```
 
 ## argocdのServiceをNodePortに変更
@@ -17,7 +21,7 @@ $ kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/
 一応コマンドを書いていますが自分はk9sから直接変更することが多いです。
 
 ```sh
-$ kubectl patch svc argocd-server -n argocd -p '{"spec": {"type": "NodePort"}}'
+$ kubectl patch svc argocd-server -n argocd -p '{"spec": {"type": "ClusterIP"}}'
 ```
 
 
@@ -39,4 +43,8 @@ Repeat New Password: <NEW_PASSWORD>
 
 ```sh
 $ kubectl apply -f manifests/certificate.yml
+```
+
+```sh
+$ kubectl apply -f manifests/ingress.yml
 ```
