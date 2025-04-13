@@ -8,10 +8,9 @@
   - [2. それ以外のツールをasdf経由でインストール](#2-それ以外のツールをasdf経由でインストール)
 - [k0sctl準備](#k0sctl準備)
 - [ArgoCDのセットアップ](#argocdのセットアップ)
-- [CephFSを用いたPVCの構築](#cephfsを用いたpvcの構築)
-  - [関連記事](#関連記事)
-- [Cert Managerのセットアップ](#cert-managerのセットアップ)
 - [Cloudflare Ingress Controllerのセットアップ](#cloudflare-ingress-controllerのセットアップ)
+- [CephFSを用いたPVCの構築](#cephfsを用いたpvcの構築)
+- [Cert Managerのセットアップ](#cert-managerのセットアップ)
 - [Harborのセットアップ](#harborのセットアップ)
 - [Cloudflareのセットアップ](#cloudflareのセットアップ)
 - [Prometheus, Grafanaのセットアップ](#prometheus-grafanaのセットアップ)
@@ -27,7 +26,7 @@
 - kubectl: 1.32.3
 - argocd: 2.14.7
 
-## 前準備
+## 0. 前準備
 
 ### 1. asdfをインストール
   
@@ -46,41 +45,43 @@
 2. k0sctl.ymlの適用 (`k0sctl apply --config k0sctl.yml`)
 3. kube configの取得 (`k0sctl kubeconfig > ~/.kube/config`)
 
-## ArgoCDのセットアップ (推奨)
+## 1. ArgoCDのセットアップ
 
 NodePortで一旦公開します。
 
 [手順](docs/argocd/README.md)
 
-## Cloudflare Ingress Controllerのセットアップ (推奨)
+## 2. Cloudflare Ingress Controllerのセットアップ
 
 CloudflareのAPIを用いて、CloudflareのDNSを自動的に更新するIngress Controllerです。
 これを用いることでどんなサービスもSSL化して公開することができます。
 
 [手順](docs/cloudflare-ingress-controller/README.md)
 
-## ArgoCDの本セットアップ (推奨)
+## 1'. ArgoCDの本セットアップ
 
 ArgoCD上にCloudflare Ingress Controllerをセットアップした後、Cloudflare Tunnel経由で公開します。
 
 [手順](docs/argocd/README.md)
 
-## Rook Cephを用いたPVCの構築 (推奨)
+## 3. Rook Cephを用いたPVCの構築
 
 [手順](docs/rook/README.md)
 
-## Cert Managerのセットアップ (推奨)
+## 4. Harborのセットアップ
+
+[手順](docs/harbor/README.md)
+
+## Cert Managerのセットアップ
 
 Let's Encrypt + cert-manager + Cloudflare DNSで自動的に正式な証明書を発行します
 
 [手順](docs/cert-manager/README.md)
 
 
-## Harborのセットアップ (推奨)
 
-[手順](docs/harbor/README.md)
 
-## Cloudflareのセットアップ (推奨)
+## Cloudflareのセットアップ
 
 Harborをhttpsで公開するために必要です。
 インターネットに安全にかつ簡単に公開することができ非常に体験がいいです。
