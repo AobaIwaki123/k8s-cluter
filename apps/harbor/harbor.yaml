@@ -24,9 +24,9 @@ spec:
               secretName: harbor-tls
           ingress:
             hosts:
-              core: harbor.shaoba.tech
+              core: harbor.aooba.net
             className: cloudflare-tunnel
-        externalURL: https://harbor.shaoba.tech
+        externalURL: https://harbor.aooba.net
   destination:
     server: "https://kubernetes.default.svc"
     namespace: harbor
