@@ -1,7 +1,7 @@
 ## Argo CD で Rook をデプロイ
 
 ```sh
-$ argocd app create --file ./rook-ceph.yaml
+$ argocd app create --file ./argocd/rook-ceph.yaml
 ```
 
 ## 外部のCeph Clusterに接続するためのリソースを追加
