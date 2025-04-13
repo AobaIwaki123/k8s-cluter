@@ -1,4 +1,12 @@
-# Install Harbor
+## 証明書の準備
+
+- 証明書が発行されるまで長くて5分程度
+
+```sh
+$ kubectl apply -f manifests/certificate.yaml
+```
+
+## Install Harbor
 
 ```sh
 $ argocd app create --file argocd/harbor.yaml
