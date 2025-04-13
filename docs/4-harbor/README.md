@@ -1,0 +1,14 @@
+# Install Harbor
+
+```sh
+$ argocd app create --file apps/harbor.yaml
+```
+
+## 2. テスト
+
+- 初期パスワードの取得
+
+```sh
+$ kubectl get secret -n harbor harbor-core -o jsonpath="{.data.HARBOR_ADMIN_PASSWORD}" | base64 -d
+Harbor12345
+```
