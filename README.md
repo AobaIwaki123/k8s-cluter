@@ -1,11 +1,5 @@
 # k8s Cluster on Proxmox 構築手順
 
-## 次のRTAの目標
-
-- asdf周りのansible化
-- 公式のhelmを自前で持つとバージョン管理が面倒なので、公式のものはそのまま使うように修正する
-- READMEが肥大化してきたので、各種手順をさらに分割する
-
 ## 目次
 
 - [Versions](#versions)
