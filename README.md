@@ -55,11 +55,11 @@
 
 ### 1. asdfをインストール
   
-[手順](docs/asdf/README.md)
+[手順](docs/0-asdf/README.md)
 
 ### 2. asdf pluginの追加
 
-[手順](docs/asdf/README.md)
+[手順](docs/0-asdf/README.md)
 
 それ以外の上記[Versions](#versions)に記載のツールをasdf pluginを用いてインストール
 
@@ -74,34 +74,34 @@
 
 NodePortで一旦公開します。
 
-[手順](docs/argocd/README.md)
+[手順](docs/1-argocd/README.md)
 
 ## 2. Cloudflare Ingress Controllerのセットアップ
 
 CloudflareのAPIを用いて、CloudflareのDNSを自動的に更新するIngress Controllerです。
 これを用いることでどんなサービスもSSL化して公開することができます。
 
-[手順](docs/cloudflare-ingress-controller/README.md)
+[手順](docs/2-cloudflare-ingress-controller/README.md)
 
 ## 1'. ArgoCDの本セットアップ
 
 ArgoCD上にCloudflare Ingress Controllerをセットアップした後、Cloudflare Tunnel経由で公開します。
 
-[手順](docs/argocd/README.md)
+[手順](docs/1-argocd/README.md)
 
 ## 3. Rook Cephを用いたPVCの構築
 
-[手順](docs/rook/README.md)
+[手順](docs/3-rook-ceph-pvc/README.md)
 
 ## 4. Cert Managerのセットアップ
 
 Let's Encrypt + cert-manager + Cloudflare DNSで自動的に正式な証明書を発行します
 
-[手順](docs/cert-manager/README.md)
+[手順](docs/4-cert-manager/README.md)
 
 ## 5. Harborのセットアップ
 
-[手順](docs/harbor/README.md)
+[手順](docs/5-harbor/README.md)
 
 
 ## Minioのセットアップ (任意)
