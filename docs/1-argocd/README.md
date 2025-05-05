@@ -60,13 +60,19 @@ data:
 # accounts.admin: apiKey, login
 ```
 
-- argocd-serverの再起動
+### ファイルからConfig Mapを編集する方法
+
+```sh
+$ kubectl apply -f manifests/argocd-cm.yml
+```
+
+### argocd-serverの再起動
 
 ```sh
 $ kubectl rollout restart deployment argocd-server -n argocd
 ```
 
-- API Tokenの作成
+### API Tokenの作成
 
 ```sh
 $ argocd login example.com --username admin --password <your-password> --grpc-web
