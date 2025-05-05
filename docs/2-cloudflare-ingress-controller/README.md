@@ -4,6 +4,8 @@ $ argocd app create --file ./argocd/cloudflare-tunnel-ingress-controller.yml
 
 ### Permissions: 
 
+CloudflareのPermissionは`:`区切りの3つのパートから構成されます。
+
 - Zone:Zone:Read
 - Zone:DNS:Edit
 - Account:Cloudflare Tunnel:Edit
