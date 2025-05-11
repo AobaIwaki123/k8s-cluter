@@ -12,9 +12,9 @@ spec:
     helm:
       valuesObject:
         cloudflare:
-          apiToken: hoge
+          apiToken: hoge # READMEのPermissionを参考にしてトークンを作成
           accountId: hoge
-          tunnelName: cf-tunnel-ingress-controller
+          tunnelName: cf-tunnel-ingress-controller # トンネルをCloudflareで作成しておく
 
   destination:
     server: https://kubernetes.default.svc
