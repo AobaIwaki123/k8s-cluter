@@ -153,6 +153,31 @@ spec:
 
         kubeStateMetrics:
           enabled: true
+
+        # 高カーディナリティ・未使用メトリクスの削減設定（ストレージ最適化）
+        kubeApiServer:
+          enabled: true
+          serviceMonitor:
+            metricRelabelings:
+              - action: drop
+                sourceLabels: [__name__]
+                regex: "apiserver_request_body_size_bytes_bucket|apiserver_request_duration_seconds_bucket|etcd_request_duration_seconds_bucket|apiserver_response_sizes_bucket|apiserver_watch_cache_read_wait_seconds_bucket|apiserver_watch_events_sizes_bucket"
+
+        kubelet:
+          enabled: true
+          serviceMonitor:
+            cAdvisorMetricRelabelings:
+              - action: drop
+                sourceLabels: [__name__]
+                regex: "container_blkio_device_usage_total|container_memory_failures_total"
+            probesMetricRelabelings:
+              - action: drop
+                sourceLabels: [__name__]
+                regex: "prober_probe_duration_seconds_bucket"
+            metricRelabelings:
+              - action: drop
+                sourceLabels: [__name__]
+                regex: "volume_operation_total_seconds_bucket|kubelet_http_requests_duration_seconds_bucket"
   syncPolicy:
     automated:
       prune: true
