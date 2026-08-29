@@ -1,0 +1,21 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: llm-gpu-ingress
+  namespace: ai
+  annotations:
+    cloudflare-tunnel-ingress-controller.strrl.dev/backend-protocol: "http"
+    cloudflare-tunnel-ingress-controller.strrl.dev/tunnel-name: "cf-tunnel-ingress-controller"
+spec:
+  ingressClassName: cloudflare-tunnel
+  rules:
+    - host: llm.example.com  # ご利用のドメインに変更してください
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: llm-gpu-service
+                port:
+                  number: 8080
