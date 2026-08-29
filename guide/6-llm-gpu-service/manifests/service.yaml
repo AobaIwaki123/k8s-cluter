@@ -8,13 +8,9 @@ metadata:
     app.kubernetes.io/part-of: ai-infrastructure
 spec:
   ports:
-    - name: http-openai-api
+    - name: http-unified-gateway
       port: 8080
       targetPort: 8080
-      protocol: TCP
-    - name: http-benchmarks
-      port: 8088
-      targetPort: 8088
       protocol: TCP
 ---
 apiVersion: discovery.k8s.io/v1
@@ -26,11 +22,8 @@ metadata:
     kubernetes.io/service-name: llm-gpu-service
 addressType: IPv4
 ports:
-  - name: http-openai-api
+  - name: http-unified-gateway
     port: 8080
-    protocol: TCP
-  - name: http-benchmarks
-    port: 8088
     protocol: TCP
 endpoints:
   - addresses:
