@@ -23,7 +23,7 @@ metadata:
 addressType: IPv4
 ports:
   - name: http-unified-gateway
-    port: 8080
+    port: 8088
     protocol: TCP
 endpoints:
   - addresses:
