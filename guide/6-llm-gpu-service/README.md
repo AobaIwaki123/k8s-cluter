@@ -1,6 +1,6 @@
 # LLM GPU 推論基盤 (6-llm-gpu-service)
 
-WSL2 / NVIDIA GPU (GeForce GTX 1650 Ti) 上で稼働するローカル LLM 推論基盤（`llama-server` / `Meta Llama-3.2-3B-Instruct`）を k0s クラスタへ統合し、OpenAI 互換 API として公開するためのマニフェスト集です。
+WSL2 / NVIDIA GPU (GeForce GTX 1650 Ti) 上で稼働するローカル LLM 推論基盤（`llama-server` / `Meta Llama-3.2-3B-Instruct`）を k0s クラスタへ統合し、**クラスタ内専用の OpenAI 互換 API** として公開するためのマニフェスト集です。
 
 ---
 
@@ -9,7 +9,9 @@ WSL2 / NVIDIA GPU (GeForce GTX 1650 Ti) 上で稼働するローカル LLM 推�
 - **GPU ホスト LAN IP**: `192.168.11.15`
 - **推論 API ポート**: `8080` (OpenAI 互換 `/v1/chat/completions`)
 - **ベンチマーク メタデータ API ポート**: `8088` (`/api/benchmarks`)
-- **クラスタ内 DNS**: `http://llm-gpu-service.ai.svc:8080`
+- **クラスタ内 DNS**: `http://llm-gpu-service.ai.svc.cluster.local:8080`
+- **公開スコープ**: **クラスタ内限定（Internal Only）**
+  - セキュリティと GPU リソース保護のため、外部 Ingress は作成せず、クラスタ内の Pod（Slack Bot, 業務 API, Web UI 等）からのみアクセス可能としています。
 
 ---
 
@@ -24,7 +26,6 @@ kubectl apply -f argocd/llm-gpu-service.app.yaml
 ```bash
 kubectl apply -f manifests/namespace.yaml
 kubectl apply -f manifests/service.yaml
-kubectl apply -f manifests/ingress.yaml
 ```
 
 ---
@@ -35,7 +36,7 @@ kubectl apply -f manifests/ingress.yaml
 from openai import OpenAI
 
 client = OpenAI(
-    base_url="http://llm-gpu-service.ai.svc:8080/v1",
+    base_url="http://llm-gpu-service.ai.svc.cluster.local:8080/v1",
     api_key="not-needed"
 )
 
